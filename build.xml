@@ -1,10 +1,19 @@
-<project name="SimpleTranslator">    
+<project name="SimpleTranslator" xmlns:ivy="antlib:org.apache.ivy.ant">    
   <property name="src" location="src"/>
   <property name="test" location="test"/>
   <property name="build" location="bin"/>
+  <property name="lib" location="lib"/>
   
-   <target name="init">
+  <path id="run.path.id">
+      <fileset dir="${lib}"/>
+      <path location="${build}"/>
+  </path>
+  
+  <target name="init">
     <mkdir dir="${build}"/>
+	<ivy:retrieve>	
+    	<dependency org="junit" name="junit" rev="4.12"/>
+	</ivy:retrieve>  
   </target>
 
   <target name="compile" depends="init">
@@ -13,7 +22,9 @@
   </target>
 
   <target name="test">
-      
+	<java classpathref="run.path.id" classname="org.junit.runner.JUnitCore">
+      <arg value="dk.diku.translator.test.TranslatorTest"/>
+    </java>
   </target>
   
  <target name="clean">
