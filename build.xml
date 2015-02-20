@@ -8,6 +8,9 @@
       <fileset dir="${lib}"/>
       <path location="${build}"/>
   </path>
+  <path id="build.path.id">
+      <fileset dir="${lib}"/>
+  </path>
   
   <target name="init">
     <mkdir dir="${build}"/>
@@ -17,8 +20,8 @@
   </target>
 
   <target name="compile" depends="init">
-    <javac includeantruntime="false" srcdir="${src}" destdir="${build}"/>
-    <javac includeantruntime="false" srcdir="${test}" destdir="${build}"/>
+    <javac includeantruntime="false" classpathref="build.path.id" srcdir="${src}" destdir="${build}"/>
+    <javac includeantruntime="false" classpathref="build.path.id" srcdir="${test}" destdir="${build}"/>
   </target>
 
   <target name="test" depends="compile">
@@ -29,5 +32,6 @@
   
  <target name="clean">
     <delete dir="${build}"/>
-  </target>
+    <delete dir="${lib}"/>
+    </target>
 </project>
