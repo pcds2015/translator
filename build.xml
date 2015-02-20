@@ -1,0 +1,22 @@
+<project name="SimpleTranslator">    
+  <property name="src" location="src"/>
+  <property name="test" location="test"/>
+  <property name="build" location="bin"/>
+  
+   <target name="init">
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init">
+    <javac includeantruntime="false" srcdir="${src}" destdir="${build}"/>
+    <javac includeantruntime="false" srcdir="${test}" destdir="${build}"/>
+  </target>
+
+  <target name="test">
+      
+  </target>
+  
+ <target name="clean">
+    <delete dir="${build}"/>
+  </target>
+</project>
