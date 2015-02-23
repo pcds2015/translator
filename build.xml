@@ -29,6 +29,7 @@
     </javac>
   </target>
 
+  
   <target name="test" depends="compile">
 	<junit haltonfailure="true">
 	    <classpath refid="run.path.id"/>
