@@ -14,14 +14,14 @@
   
   <target name="init">
     <mkdir dir="${build}"/>
-	<ivy:retrieve>	
-    	<dependency org="junit" name="junit" rev="4.12"/>
-	</ivy:retrieve>  
+	<ivy:retrieve/>	
   </target>
 
   <target name="compile" depends="init">
-    <javac includeantruntime="false" classpathref="build.path.id" srcdir="${src}" destdir="${build}"/>
-    <javac includeantruntime="false" classpathref="build.path.id" srcdir="${test}" destdir="${build}"/>
+    <javac includeantruntime="false" classpathref="build.path.id" destdir="${build}">
+        <src path="${src}"/>
+        <src path="${test}"/>
+    </javac>
   </target>
 
   <target name="test" depends="compile">
