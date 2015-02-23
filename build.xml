@@ -12,6 +12,11 @@
       <fileset dir="${lib}"/>
   </path>
   
+  <taskdef name="junit"
+  	classname="org.apache.tools.ant.taskdefs.optional.junit.JUnitTask">
+  	<classpath refid="build.path.id"/>
+  </taskdef>
+
   <target name="init">
     <mkdir dir="${build}"/>
 	<ivy:retrieve/>	
@@ -25,9 +30,10 @@
   </target>
 
   <target name="test" depends="compile">
-	<java classpathref="run.path.id" classname="org.junit.runner.JUnitCore">
-      <arg value="dk.diku.translator.test.TranslatorTest"/>
-    </java>
+	<junit haltonfailure="true">
+	    <classpath refid="run.path.id"/>
+	    <test name="dk.diku.translator.test.TranslatorTest"/>
+    </junit>
   </target>
   
  <target name="clean">
