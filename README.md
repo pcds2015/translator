@@ -14,10 +14,9 @@ initialize, build, and test the application.
 
 Alternatively, you may try this in the Docker Jenkins slave (using
 `docker run -ti kmhansen/pcds2015-jenkins-slave /bin/bash` followed by
-`cd /home/jenkins/slave`
-`git clone https://github.com/pcds2015/translator`
-`ant test`
-see below)
+`cd /home/jenkins/slave`, 
+`git clone https://github.com/pcds2015/translator`, and 
+`ant test`; see below)
 
 ## Running a Jenkins master with Docker
 
