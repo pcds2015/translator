@@ -32,6 +32,7 @@
   <target name="test" depends="compile">
 	<junit haltonfailure="true">
 	    <classpath refid="run.path.id"/>
+	    <formatter type="plain" usefile="false"/>
 	    <test name="dk.diku.translator.test.TranslatorTest"/>
     </junit>
   </target>
