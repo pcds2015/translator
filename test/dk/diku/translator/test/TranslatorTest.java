@@ -13,7 +13,6 @@ public class TranslatorTest {
 	public void testHorseGivesHest() {
 		Translator translator = new SimpleTranslator();
 		assertEquals("hest", translator.translate("horse"));
-		assertEquals("hestur", translator.translate("hest"));
 	}
 	
 	
