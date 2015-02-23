@@ -9,5 +9,4 @@ public class SimpleTranslator implements Translator {
 		// TODO Auto-generated method stub
 		return "hest";
 	}
-
 }
