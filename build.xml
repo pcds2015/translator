@@ -12,14 +12,14 @@
       <fileset dir="${lib}"/>
   </path>
   
-  <taskdef name="junit"
-  	classname="org.apache.tools.ant.taskdefs.optional.junit.JUnitTask">
-  	<classpath refid="build.path.id"/>
-  </taskdef>
 
   <target name="init">
     <mkdir dir="${build}"/>
-	<ivy:retrieve/>	
+   <ivy:retrieve/>	
+   <taskdef name="junit"
+  	classname="org.apache.tools.ant.taskdefs.optional.junit.JUnitTask">
+  	<classpath refid="build.path.id"/>
+   </taskdef>
   </target>
 
   <target name="compile" depends="init">
